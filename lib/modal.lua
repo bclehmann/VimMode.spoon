@@ -22,6 +22,7 @@ local Noop = dofile(vimModeScriptPath .. "lib/motions/noop.lua")
 local TillAfterSearch = dofile(vimModeScriptPath .. "lib/motions/till_after_search.lua")
 local TillBeforeSearch = dofile(vimModeScriptPath .. "lib/motions/till_before_search.lua")
 local Word = dofile(vimModeScriptPath .. "lib/motions/word.lua")
+local MatchingChar = dofile(vimModeScriptPath .. "lib/motions/matching_char.lua")
 
 local Left = dofile(vimModeScriptPath .. "lib/motions/left.lua")
 local Right = dofile(vimModeScriptPath .. "lib/motions/right.lua")
@@ -178,6 +179,7 @@ local function createVimModal(vim)
       end)
       :bindWithRepeat({'shift'}, '4', motion(LineEnd)) -- $
       :bindWithRepeat({'shift'}, '6', motion(LineBeginning)) -- ^
+      :bindWithRepeat({'shift'}, '5', motion(MatchingChar)) -- %
       :bindWithRepeat({}, 'b', motion(BackWord))
       :bindWithRepeat({'shift'}, 'b', motion(BackBigWord))
       :bindWithRepeat({}, 'e', motion(EndOfWord))
